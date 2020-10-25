@@ -7,7 +7,7 @@ This is a utility program that can label object bounding boxes with ID and name 
 * [DarkLabel2.3.zip](https://github.com/deepguider/DarkLabel/releases/download/darklabel2.3-release/DarkLabel2.3.zip)
 (currently, only binary executable can be downloadable)
 
-![My image](https://github.com/deepguider/DarkLabel/blob/master/image/darklabel_gui.png)
+![My image](https://github.com/darkpgmr/DarkLabel/blob/master/image/darklabel_gui.png)
 
 ### Main Features
 * Video/image object labeling & annotation tool (bounding box with ID and label)
@@ -21,7 +21,7 @@ This is a utility program that can label object bounding boxes with ID and name 
 * Windows only (32/64 bits)
 
 ### Program Configuration
-The program can be configured by modifying [darklabel.yml](https://github.com/deepguider/DarkLabel/blob/master/darklabel.yml) attached in the zipped archive.
+The program can be configured by modifying [darklabel.yml](https://github.com/darkpgmr/DarkLabel/blob/master/darklabel.yml) attached in the zipped archive.
 * define and modify data formats
 * change hotkeys (frame navigation, action keys)
 * change video/image export setting (video codec, frame rate, image format)
