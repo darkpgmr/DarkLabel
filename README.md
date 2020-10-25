@@ -5,7 +5,7 @@ This is a utility program that can label object bounding boxes with ID and name 
 
 ### Download Executable
 * [DarkLabel2.3.zip](https://github.com/darkpgmr/DarkLabel/releases/tag/darklabel2.3-release)
-(currently, only binary executable can be downloadable)
+(currently, only binary executable can be downloaded)
 
 ![My image](https://github.com/darkpgmr/DarkLabel/blob/master/image/darklabel_gui.png)
 
