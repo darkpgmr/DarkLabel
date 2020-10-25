@@ -1,0 +1,106 @@
+%YAML:1.0
+---
+## Default Settings
+media_path_root: "H:\\darklabel_test\\media"          # if specified, image/video files are opened in this folder by default
+gt_path_root: "H:\\darklabel_test\\gt"          # if specified, gt files are loaded and saved in $gt_path_root\ by default
+auto_gt_load: 0                # if true, gt is loaded from $gt_path_root\ when media is opened (you have to select gt format first before open media. if $gt_path_root\ is not defined, gt is loaded from media path)
+gt_file_ext: "xml"              # default gt save file format (supported formats: xml, txt)
+gt_merged: 0                  # 0: save gt as separate file for each image, 1: save gt in one file
+delimiter: ","                   # separating delimiter of gt datum (it's effective only when gt is saved in txt)
+database_name: "Unknown"        # it is used when saving gt data in xml format: <database>database_name</database>
+classes_set: "my_classes1"   # predefined classes set (tag name of classes set)
+
+## Predefined Classes Sets (you can define and add your own classes set here)
+my_classes1: ["person", "vehicle", "bicycle", "motorbike", "animal", "tree", "building"]
+coco_classes: ["person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella", "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball", "kite", "baseball bat", "baseball glove", "skateboard", "surfboard", "tennis racket", "bottle", "wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple", "sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", "donut", "cake", "chair", "couch", "potted plant", "bed", "dining table", "toilet", "tv", "laptop", "mouse", "remote", "keyboard", "cell phone", "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors", "teddy bear", "hair drier", "toothbrush"]
+voc_classes: ["aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"]
+
+## GUI Settings (you also can enter double quoted virtual key code for hotkeys: e.g. "32" for spacebar)
+pg_step_size: 30         # navigation step size when PgUp and PgDn key is pressed
+box_width: 2             # line width of bounding boxes
+box_color: [0,255,0]     # default box color: [b, g, r] (boxes that have no ID)
+highlight_width: 2      # line width of highlighted bounding box boundaries
+cross_width: 1           # width of cross line indicating mouse position
+hotkey_left: "a"          # secondary hotkey for left arrow key (move backward)
+hotkey_right: "d"        # secondary hotkey for right arrow key (move forward)
+hotkey_pgup: "q"       # secondary hotkey for page up key (move backword pg_step_size)
+hotkey_pgdn: "e"       # secondary hotkey for page down key (move forward pg_step_size)
+hotkey_shift: "s"         # secondary hotkey for SHIFT key (box editing mode)
+hotkey_ctrl: "w"         # secondary hotkey for CTRL key (scroll mode of zoomed window)
+
+## Export Annotation results as Video or Image List
+export_video_fps: 10              # fps of output video when the input media is image list and the save type is video. If the input media is video, the origirnla fps is preserved.
+export_video_codec: "XVID"      # opencv fourcc codecs: "XVID", "DIVX", "MJPG", "FFV1", ... (full list of fourcc: http://www.fourcc.org/codecs.php)
+export_image_format: "png"     # image format when the input media is video and the save type is image list ("png", "jpg", "bmp", ...). If the input media is image list, the original format is preserved.
+
+## User-defined GT Formats (format0 ~ format99)
+#  [format specifiers]
+#   - fn: video frame number (e.g. 0, 1, 2, ...)
+#   - iname: image file name (e.g. sample.png)
+#   - cname: class name or label of the object (e.g. dog, cat, ...)
+#   - classid: zero-based index of object class in the classes set (e.g. 0, 1, 2, ...)
+#   - id: object instance id (e.g. 0, 1, 2, ...)
+#   - x1, y1, x2, y2, cx, cy, w, h: bounding box (xmin, ymin, xmax, ymax, xcenter, ycenter, width, height)
+#   - nx1, ny1, nx2, ny2, ncx, ncy, nw, nh: normalized bounding box (e.g. nx1 = x1 / image_width, nh = h / image_height)
+#   - difficult: difficult sample to train or not (it comes from pascal voc) (e.g. 0, 1)
+
+format0:    # pascal voc & imagenet (predefined format]
+  fixed_filetype: 1                 # if specified as true, save setting isn't changeable in GUI
+  data_fmt: [cname, difficult, x1, y1, x2, y2]
+  gt_file_ext: "xml"                # if not specified, default setting is used
+  gt_merged: 0                    # if not specified, default setting is used
+  classes_set: "voc_classes"      # if not specified, default setting is used 
+  name: "pascal voc"              # if not specified, "[fmt%d] $data_fmt" is used as default format name
+
+format1:    # darknet yolo (predefined format]
+  fixed_filetype: 1                 # if specified as true, save setting isn't changeable in GUI
+  data_fmt: [classid, ncx, ncy, nw, nh]
+  gt_file_ext: "txt"                 # if not specified, default setting is used
+  gt_merged: 0                    # if not specified, default setting is used
+  delimiter: " "                     # if not spedified, default delimiter(',') is used
+  classes_set: "coco_classes"     # if not specified, default setting is used
+  name: "darknet yolo"           # if not specified, "[fmt%d] $data_fmt" is used as default format name
+
+format2:    # example of user-defined format (pascal voc & imagenet + object id)
+  fixed_filetype: 0                 # if specified as true, save setting isn't changeable in GUI
+  data_fmt: [cname, id, difficult, x1, y1, x2, y2]
+  gt_file_ext: "xml"                # if not specified, default setting is used
+  gt_merged: 0                    # if not specified, default setting is used
+  classes_set: "voc_classes"      # if not specified, default setting is used 
+  name: "pascal voc + id"       # if not specified, "[fmt%d] $data_fmt" is used as default format name
+
+format3:    # example of user-defined format (darknet yolo + object id)
+  fixed_filetype: 0                 # if specified as true, save setting isn't changeable in GUI
+  data_fmt: [classid, id, ncx, ncy, nw, nh]
+  gt_file_ext: "txt"                 # if not specified, default setting is used
+  gt_merged: 0                    # if not specified, default setting is used
+  delimiter: " "                     # if not spedified, default delimiter(',') is used
+  classes_set: "coco_classes"     # if not specified, default setting is used
+  name: "darknet yolo + id"      # if not specified, "[fmt%d] $data_fmt" is used as default format name
+
+format4:    # example of user-defined format (object tracking in videos)
+  fixed_filetype: 0                 # if specified as true, save setting isn't changeable in GUI
+  data_fmt: [fn, cname, id, x1, y1, w, h]
+  gt_file_ext: "txt"                  # initial setting (the setting can be changed in GUI)
+  gt_merged: 1                     # initial setting (the setting can be changed in GUI)
+  classes_set: "my_classes1"      # if not specified, default setting is used 
+  
+format5:     # example of user-defined format (object tracking in image sequence)
+  fixed_filetype: 0                 # if specified as true, save setting isn't changeable in GUI
+  data_fmt: [iname, cname, id, x1, y1, w, h]
+  gt_file_ext: "txt"                 # if not specified, default setting is used. The setting can be changed in GUI
+  gt_merged: 1                     # if not specified, default setting is used. The setting can be changed in GUI
+  classes_set: "my_classes1"      # if not specified, default setting is used 
+
+format6:     # other example of user-defined format
+  fixed_filetype: 0                 # if specified as true, save setting isn't changeable in GUI
+  data_fmt: [classid, difficult, x1, y1, x2, y2]
+  gt_file_ext: "xml"                  # if not specified, default setting is used. The setting can be changed in GUI
+  gt_merged: 0                     # if not specified, default setting is used. The setting can be changed in GUI
+  classes_set: "coco_classes"     # if not specified, default setting is used
+
+format7:    # other example of user-defined format
+  fixed_filetype: 0                 # if specified as true, save setting isn't changeable in GUI
+  data_fmt: [cname, x1, y1, w, h]
+  gt_file_ext: "xml"                 # if not specified, default setting is used. The setting can be changed in GUI
+  gt_merged: 0                     # if not specified, default setting is used. The setting can be changed in GUI
