@@ -3,7 +3,7 @@
 ### Video/Image Labeling and Annotation Tool
 This is a utility program that can label object bounding boxes with ID and name in videos and images. It also can be used to crop videos, sample traninig images in a video, and mosaic image region. Anyone can use it for non-commercial purposes.
 
-※ Since this program is not code-signed, download and execution may be blocked by Windows and web browsers. This is a personally created program and also a 100% safe program, but only for those who need it.
+※ Since this program is not code-signed, download and execution may be blocked by Windows and web browsers. This is a personally created program and a 100% safe program, but only for those who need it.
 
 ### Download Executable
 * [DarkLabel2.3.zip](https://github.com/darkpgmr/DarkLabel/releases/download/darklabel2.3-release/DarkLabel2.3.zip)
