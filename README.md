@@ -8,8 +8,6 @@ This is a utility program that can label object bounding boxes with ID and name 
 ### Download Executable
 Currently, only binary executables can be downloaded.
 * [DarkLabel2.3-update2](https://github.com/darkpgmr/DarkLabel/releases/download/darklabel2.3-update2/DarkLabel2.3-update2.zip)
-* [DarkLabel2.3-update1](https://github.com/darkpgmr/DarkLabel/releases/download/darklabel2.3-update1/DarkLabel2.3-update1.zip)
-* [DarkLabel2.3](https://github.com/darkpgmr/DarkLabel/releases/download/darklabel2.3-release/DarkLabel2.3.zip)
 
 ![My image](https://github.com/darkpgmr/DarkLabel/blob/master/image/darklabel_gui.png)
 
