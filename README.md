@@ -48,16 +48,19 @@ The program can be configured by modifying [darklabel.yml](https://github.com/da
 	Ctrl+MouseWheel: zoom in/out
 	Ctrl+MouseDrag: scroll zoomed window
 	
-	Enter: apply tracking (selected trajectories or newly created boxes only)
+	Enter or Spacebar: apply tracking (selected trajectories or newly created boxes only)
 	Ctrl+'s': save gt	
 	F1: show help
 
 ### Advanced Instruction
 * Labeling by object tracking
   * By pressing 'Return' key, _newly created_ bounding boxes in the current frame are tracked in the next frame and labeled automatically.
-    * _newly created boxes_: the boxes that are created after entering the frame.
+    * _newly created boxes_: the boxes that are created after entering into the frame.
   * If there are selected trajectories in the frame (object trajectory can be selected by double clicking a box), only the trajectory boxes are tracked (newly created boxes are not tracked).
   * If tracking is applied to trajectories, it first deletes their tail parts (connected trajectory boxes after the current frame) and then continue the tracking, keeping their IDs and labels. This functionality can be used to correct previous wrong tracking.
+  * Two trackers are embeded. (developed by darkpgmr)
+    * tracker1 (robust): good for deformable objects (e.g., human, ..)
+    * tracker2 (accurate): good for rigid/static object (e.g., vehicle, wall, house, ...)
 * Data Sampling/gathering
   * If you want to sample images in a video and save them (e.g. gathering training samples), draw dummy boxes on the images and then export the annotation results as images with the "no box drawing" option selected and the "labeled frames only" checked.
 * Privacy Masking
