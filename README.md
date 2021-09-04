@@ -5,8 +5,8 @@ This is a utility program that can label object bounding boxes with ID and name 
 
 ※ Since this program is not code-signed, download and execution may be blocked by Windows and web browsers. This is a personally created program and a 100% safe program, but only for those who need it.
 
-### Download Executable
-* [DarkLabel2.3-update2](https://github.com/darkpgmr/DarkLabel/releases/download/darklabel2.3-update2/DarkLabel2.3-update2.zip)
+### Download Latest Executable
+* [DarkLabel2.4](https://github.com/darkpgmr/DarkLabel/releases/download/darklabel-release/DarkLabel2.4.zip)
 (currently, only binary executables can be downloaded)
 
 ![My image](https://github.com/darkpgmr/DarkLabel/blob/master/image/darklabel_gui.png)
